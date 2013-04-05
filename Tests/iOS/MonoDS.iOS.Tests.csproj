@@ -117,12 +117,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Folder Include="TestObjects\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\MonoDS\MonoDS.iOS.csproj">
       <Project>{48DCEC10-6B8B-4371-8F45-117A144718A7}</Project>
       <Name>MonoDS.iOS</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestObjects\" />
   </ItemGroup>
 </Project>

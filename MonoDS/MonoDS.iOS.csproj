@@ -64,10 +64,8 @@
     <Compile Include="DocumentStore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\AboutResources.txt" />
-    <BundleResource Include="Resources\Resource.designer.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\values\Strings.xml" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Resources\Resource.designer.cs" />
   </ItemGroup>
 </Project>

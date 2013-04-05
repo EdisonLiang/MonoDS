@@ -39,7 +39,8 @@ namespace MonoDS.Tests
 			// create path and filename to the database file.
 			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
 			var libraryPath = Path.Combine (documentsPath, "..", "Library");
-			_dataDirectory = Path.Combine (libraryPath, "MonoDS");
+			_dataDirectory = libraryPath;
+
 			_entity = "PersonEntity";
 			_serializer = new Serializer();
 		}

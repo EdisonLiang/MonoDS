@@ -42,9 +42,12 @@ namespace MonoDS
 		public DocumentStore (string dataDirectory)
 		{
 			if (String.IsNullOrEmpty(dataDirectory))
-				throw new ArgumentNullException("The dataDirectory argument is required");
+				throw new ArgumentNullException("The dataDirectory argument is required.");
 
-			_dataDirectory = dataDirectory;
+			if (!Directory.Exists(dataDirectory))
+				throw new ArgumentException("The specified directory does not exist.");
+
+			 _dataDirectory = Path.Combine (dataDirectory, "MonoDS");
 			_storageProcessors = new Dictionary<string, StorageProcessor>();
 			_serializer = new Serializer();
 		}
