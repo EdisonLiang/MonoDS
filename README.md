@@ -30,7 +30,7 @@ using (var documentStore = new MonoDS.DocumentStore(libraryPath))
 ```
 
 
-Note: MonoDS is still being tested and actively developed. 
+Note: MonoDS is still being developed and is not stable. 
 
 Roadmap
 --
@@ -44,10 +44,7 @@ For bugs and feature requests open a [new issue](https://github.com/toneuk/MonoD
 
 License
 --
-* MonoDS is released under the [MIT License](http://www.opensource.org/licenses/MIT)
-* MonoDS uses [Json.NET](http://james.newtonking.com/projects/json-net.aspx) by James Newton-King which is also released under the [MIT License](http://www.opensource.org/licenses/MIT)
-
-
+* Freely distributable under the terms of the [MIT License](http://www.opensource.org/licenses/MIT)
 
 
 
