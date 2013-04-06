@@ -21,7 +21,7 @@
 //
 using System;
 
-namespace MiniNoSql.Tests.TestObjects
+namespace MonoDS.Tests.TestObjects
 {
 	public class CarEntity
 	{

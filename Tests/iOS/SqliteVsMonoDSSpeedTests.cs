@@ -25,7 +25,7 @@ using Mono.Data.Sqlite;
 using NUnit.Framework;
 using MonoDS.Storage;
 using MonoDS.Serialization;
-using MiniNoSql.Tests.TestObjects;
+using MonoDS.Tests.TestObjects;
 
 namespace MonoDS.Tests
 {

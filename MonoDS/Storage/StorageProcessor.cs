@@ -144,6 +144,9 @@ namespace MonoDS.Storage
 			if (!File.Exists (_dataFilePath)) {
 				DestroyExistingData ();
 			}
+
+			// assign file size
+			this.FileSize = _binaryReader.BaseStream.Length;
 		}
 
 		/// <summary>
@@ -245,12 +248,11 @@ namespace MonoDS.Storage
 				_binaryWriter.Write(new Byte[dataIndex.PaddingLength]);
 			}
 
-			// update the header record
-			_binaryWriter.BaseStream.Position = 0;
-			_binaryWriter.Write(header.GetBytes());
-
 			// save the data
 			_binaryWriter.Flush();
+
+			// update the header record
+			UpdateDataHeader(header);
 		}
 
 		public T Load<T>(long searchKey)

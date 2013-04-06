@@ -145,14 +145,6 @@ namespace MonoDS
 			if (!Directory.Exists(directoryName))
 				return;
 
-			var dir = new DirectoryInfo(_dataDirectory);
-			foreach(FileInfo fi in dir.GetFiles()){
-				fi.Delete();
-			}
-			foreach (var di in dir.GetDirectories()){
-				EmptyDirectory(di.FullName);
-				di.Delete();
-			}
 			foreach(var file in Directory.EnumerateFiles(_dataDirectory, "*.*")){
 				File.Delete(file);
 			}

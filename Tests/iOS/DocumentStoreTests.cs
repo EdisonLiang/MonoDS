@@ -23,9 +23,8 @@ using System;
 using System.IO;
 using NUnit.Framework;
 using MonoDS;
-using MiniNoSql.Tests.TestObjects;
+using MonoDS.Tests.TestObjects;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Collections.Generic;
 
 namespace MiniNoSql.Tests

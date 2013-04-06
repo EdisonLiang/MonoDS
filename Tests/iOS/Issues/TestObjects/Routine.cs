@@ -21,12 +21,12 @@
 //
 using System;
 
-namespace MonoDS.Tests.TestObjects
+namespace MonoDS.Tests
 {
-	public class PersonEntity
+	public class Routine
 	{
 		public long Id {get; set;}
 		public string Name {get; set;}
-		public string Email {get; set;}
+
 	}
 }

@@ -24,7 +24,7 @@ using NUnit.Framework;
 using System.IO;
 using MonoDS.Storage;
 using MonoDS.Serialization;
-using MiniNoSql.Tests.TestObjects;
+using MonoDS.Tests.TestObjects;
 
 namespace MonoDS.Tests
 {

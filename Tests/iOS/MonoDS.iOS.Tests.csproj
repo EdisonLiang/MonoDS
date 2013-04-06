@@ -8,7 +8,7 @@
     <ProjectGuid>{C2BEE6E1-8A1F-4E3B-AE4F-2EB240AEF7DE}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MonoDS.iOS.Tests</RootNamespace>
+    <RootNamespace>MonoDS.Tests</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -114,10 +114,15 @@
     <Compile Include="TestObjects\PersonEntity.cs" />
     <Compile Include="TestObjects\CarEntity.cs" />
     <Compile Include="DocumentStoreTests.cs" />
+    <Compile Include="Issues\IssueTests.cs" />
+    <Compile Include="Issues\TestObjects\Routine.cs" />
+    <Compile Include="Issues\TestObjects\Workout.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="TestObjects\" />
+    <Folder Include="Issues\" />
+    <Folder Include="Issues\TestObjects\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MonoDS\MonoDS.iOS.csproj">
@@ -125,4 +130,13 @@
       <Name>MonoDS.iOS</Name>
     </ProjectReference>
   </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="None" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>
