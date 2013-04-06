@@ -4,6 +4,13 @@ MonoDS
 MonoDS is a local NoSQL Document Storage Database for use with Xamarin iOS and Android.
 With MonoDS you can store and retrieve domain objects without creating database tables and mapping code.
 
+Why Use MonoDS?
+--
+1. Fast performance.
+2. No unmanaged dependancies (Completely written in C# .NET).
+3. No need to create database tables or mapping code.
+4. Data files are kept small by allowing room for growth in the data file. By default all documents are padded with 50% extra space so that updates to a document do not require a new record at the end of the data file. Deleted documents are overwritten by new documents in the data file.
+
 Getting Started
 --
 
@@ -18,7 +25,7 @@ using MonoDS;
 
 public class Person
 {
-  public long Id {get; set;} // Required (Don't set for autoincrement)
+  public int Id {get; set;} // Required (Don't set for autoincrement)
   public string Name {get; set;}
   public string Email {get; set;}
 }
