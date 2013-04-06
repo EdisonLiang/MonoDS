@@ -73,9 +73,9 @@ Performance
 
 Roadmap
 --
-1. Handle power failures and crashes using transaction logging.
-2. Support Querys as currently all documents of a certain type need loaded and sorted using LINQ.
+1. Support Querys as currently all documents of a certain type need loaded and sorted using LINQ.
 2. Change tracking and Unit of Work.
+3. Handle power failures and crashes using transaction logging.
 
 Bugs
 --
