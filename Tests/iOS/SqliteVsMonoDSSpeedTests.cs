@@ -45,8 +45,8 @@ namespace MonoDS.Tests
 				Environment.SpecialFolder.Personal);
 			_db = Path.Combine (documents, "mydb.db3");
 
-			if (File.Exists(_db) == true)
-				File.Delete(_db);
+			if (File.Exists (_db))
+				File.Delete (_db);
 
 			SqliteConnection.CreateFile (_db);
 			var conn = new SqliteConnection("URI=" + _db);

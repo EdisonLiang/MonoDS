@@ -59,21 +59,21 @@ namespace MonoDS.Storage
 			this.RecordCount++;
 
 			// if document key is 0 then auto generate
-			if (documentKey == 0)
-				this.LastRecordId = this.LargestRecordId + 1;
-			else 
-				this.LastRecordId = documentKey;
+			if (documentKey == 0){
 
-			// determine if this document key is the largest in the store.
-			if (documentKey > this.LargestRecordId)
-				this.LargestRecordId = documentKey;
+				// increment the highest record been stored yet and use that.
+				this.LargestRecordId++;
+				this.LastRecordId = this.LargestRecordId;
+				return this.LastRecordId;
+			
+			}else{
 
-			// if zero because first run then set to last
-			if (this.LargestRecordId == 0)
-				this.LargestRecordId = this.LastRecordId;
+				// check if higher than the last largest record
+				if (documentKey > this.LargestRecordId)
+					this.LastRecordId = documentKey;
 
-			// return the next record id to use.
-			return this.LastRecordId;
+				return this.LastRecordId;
+			}
 		}
 
 		public void RemoveRecord()

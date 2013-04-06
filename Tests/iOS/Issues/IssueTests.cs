@@ -52,7 +52,7 @@ namespace MonoDS.Tests
 
 			using (var docStore = new DocumentStore(_dataDirectory))
 			{
-				var allDocs = docStore.All<PersonEntity>();
+				docStore.All<PersonEntity>();
 			}
 		
 			Assert.True (true);
