@@ -37,8 +37,7 @@ namespace MiniNoSql.Tests
 		public DocumentStoreTests ()
 		{
 			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
-			var libraryPath = Path.Combine (documentsPath, "..", "Library");
-			_dataDirectory = Path.Combine (libraryPath, "MonoDS");
+			_dataDirectory = Path.Combine (documentsPath, "..", "Library");
 		}
 
 		[Test]
