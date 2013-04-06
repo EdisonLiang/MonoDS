@@ -36,6 +36,19 @@ namespace MonoDS.Utilities
 			return false;
 		}
 
+		public static long GetPropertyValueInt16<T>(T entity, string propertyName)
+		{
+			var propertyInfo = entity.GetType().GetProperties();
+			foreach(var p in propertyInfo)
+			{
+				if (p.Name.Equals(propertyName, StringComparison.CurrentCultureIgnoreCase))
+				{
+					return Convert.ToInt16(p.GetValue(entity, null));
+				}
+			}
+			return 0;
+		}
+
 		public static long GetPropertyValueInt64<T>(T entity, string propertyName)
 		{
 			var propertyInfo = entity.GetType().GetProperties();
@@ -68,12 +81,56 @@ namespace MonoDS.Utilities
 			foreach(var p in propertyInfo)
 			{
 				if (p.Name.Equals(propertyName, StringComparison.CurrentCultureIgnoreCase)){
-					p.SetValue(entity, propertyValue, null);
+					string propertyTypeName = p.PropertyType.Name;
+					if (propertyTypeName == "Int64"){
+						p.SetValue(entity, propertyValue, null);
+					} else if(propertyTypeName == "Int32"){
+						p.SetValue (entity, Convert.ToInt32(propertyValue), null);
+					} else if(propertyTypeName == "Int16"){
+						p.SetValue (entity, Convert.ToInt16(propertyValue), null);
+					}
 					return;
 				}
 			}
 		}
 
+		public static void SetPropertyValue<T>(T entity, string propertyName, int propertyValue)
+		{
+			var propertyInfo = entity.GetType().GetProperties();
+			foreach(var p in propertyInfo)
+			{
+				if (p.Name.Equals(propertyName, StringComparison.CurrentCultureIgnoreCase)){
+					string propertyTypeName = p.PropertyType.Name;
+					if (propertyTypeName == "Int64"){
+						p.SetValue(entity, Convert.ToInt64(propertyValue), null);
+					} else if(propertyTypeName == "Int32"){
+						p.SetValue (entity, propertyValue, null);
+					} else if(propertyTypeName == "Int16"){
+						p.SetValue (entity, Convert.ToInt16(propertyValue), null);
+					}
+					return;
+				}
+			}
+		}
+
+		public static void SetPropertyValue<T>(T entity, string propertyName, short propertyValue)
+		{
+			var propertyInfo = entity.GetType().GetProperties();
+			foreach(var p in propertyInfo)
+			{
+				if (p.Name.Equals(propertyName, StringComparison.CurrentCultureIgnoreCase)){
+					string propertyTypeName = p.PropertyType.Name;
+					if (propertyTypeName == "Int64"){
+						p.SetValue(entity, Convert.ToInt64(propertyValue), null);
+					} else if(propertyTypeName == "Int32"){
+						p.SetValue (entity, Convert.ToInt32(propertyValue), null);
+					} else if(propertyTypeName == "Int16"){
+						p.SetValue (entity, propertyValue, null);
+					}
+					return;
+				}
+			}
+		}
 
 	}
 }
