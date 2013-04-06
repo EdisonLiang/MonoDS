@@ -1,4 +1,4 @@
-MonoDS
+MonoDS - A .NET Document Storage Database for Mobile
 ==
 
 MonoDS is a local NoSQL Document Storage Database for use with Xamarin iOS and Android.
@@ -73,12 +73,19 @@ using (var docStore = new DocumentStore(libraryPath))
     Console.WriteLine(person.Name);
   }
 }
+
+// count
+using (var docStore = new DocumentStore(libraryPath))
+{
+  var count = docStore.Count<Person>();
+  Console.WriteLine(count);
+}
 ```
 Notes
 --
 1. MonoDS is still being developed and is not ready for production use. 
-2. Currently domain objects must have an Id property and it must be a short, int or long.
-
+2. Domain objects must have an Id property and it must be a short, int or long.
+3. Built and tested on iOS using Xamarin Studio.
 
 Performance
 --
