@@ -156,6 +156,7 @@ namespace MonoDS
 			// if its not in the list instantiate it, add then return.
 			if (!_storageProcessors.ContainsKey(entityName)){
 				var sp = new StorageProcessor(_dataDirectory, entityName, _serializer);
+				sp.PaddingFactor = 50; // allow for 50% growth.
 				_storageProcessors.Add(entityName, sp);
 				return sp;
 			}
