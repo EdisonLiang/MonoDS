@@ -9,6 +9,7 @@ Getting Started
 
 1. Download the MonoDS.dll and Newtonsoft.dll from the Build folder.
 2. Add the two DLL files as references to your project.
+3. The current API is very small. See the code sample's below for available methods:
 
 ```csharp
 using System;
@@ -47,6 +48,12 @@ using (var docStore = new DocumentStore(libraryPath))
   var person = docStore.Find<Person>(1);
   person.Name = "MonoDS Changed";
   docStore.Update<Person>(person);
+}
+
+// delete
+using (var docStore = new DocumentStore(libraryPath))
+{
+  docStore.Delete<Person>(1);
 }
 
 // get all
