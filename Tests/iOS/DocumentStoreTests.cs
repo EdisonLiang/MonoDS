@@ -25,6 +25,8 @@ using NUnit.Framework;
 using MonoDS;
 using MiniNoSql.Tests.TestObjects;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Collections.Generic;
 
 namespace MiniNoSql.Tests
 {
@@ -37,7 +39,7 @@ namespace MiniNoSql.Tests
 		{
 			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments);
 			var libraryPath = Path.Combine (documentsPath, "..", "Library");
-			_dataDirectory = libraryPath;
+			_dataDirectory = Path.Combine (libraryPath, "MonoDS");
 		}
 
 		[Test]
@@ -55,6 +57,45 @@ namespace MiniNoSql.Tests
 
 				Assert.AreEqual(1, ds.Count<PersonEntity>());
 				Assert.AreEqual(1, ds.Count<CarEntity>());
+			}
+		}
+
+		[Test]
+		public void UpdateMultipleDocumentTypes()
+		{
+			using (var ds = new DocumentStore(_dataDirectory))
+			{
+				ds.DestroyAllData();
+				
+				var person = new PersonEntity() { Name = "MonoDS", Email = "test" };
+				var car = new CarEntity() { Name = "MonoDS", Make = "MonoDS", Model = "MonoDS GTI" };
+				
+				ds.Store<PersonEntity>(person);
+				ds.Store<CarEntity>(car);
+				
+				Assert.AreEqual(1, ds.Count<PersonEntity>());
+				Assert.AreEqual(1, ds.Count<CarEntity>());
+			}
+
+			// update
+			using (var ds = new DocumentStore(_dataDirectory))
+			{	
+				var person = ds.All<PersonEntity>().First();
+				var car = ds.All<CarEntity>().First();
+				person.Name = "MonoDS2";
+				car.Name = "MonoDS2";
+
+				ds.Update<PersonEntity>(person);
+				ds.Update<CarEntity>(car);
+			}
+
+			// check result
+			using (var ds = new DocumentStore(_dataDirectory))
+			{	
+				var person = ds.All<PersonEntity>().First();
+				var car = ds.All<CarEntity>().First();
+				Assert.AreEqual("MonoDS2", person.Name);
+				Assert.AreEqual("MonoDS2", car.Name);
 			}
 		}
 

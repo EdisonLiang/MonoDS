@@ -64,6 +64,17 @@ namespace MonoDS
 		}
 
 		/// <summary>
+		/// Update the specified document.
+		/// </summary>
+		/// <param name="document">Document.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public void Update<T> (T document)
+		{
+			var sp = GetStorageProcessor<T>(document);
+			sp.Update<T>(document);
+		}
+
+		/// <summary>
 		/// Delete the document with the specified document id.
 		/// </summary>
 		/// <param name="documentId">Document identifier.</param>
