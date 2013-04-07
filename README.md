@@ -25,7 +25,7 @@ using MonoDS;
 
 public class Person
 {
-  public int Id {get; set;} // Required (Don't set for autoincrement)
+  public int Id {get; set;} // Required
   public string Name {get; set;}
   public string Email {get; set;}
 }
@@ -83,7 +83,7 @@ using (var docStore = new DocumentStore(libraryPath))
 ```
 Notes
 --
-1. MonoDS is still being developed and is not ready for production use. 
+1. MonoDS is still being tested and is not ready for production use. 
 2. Domain objects must have an Id property and it must be a short, int or long.
 3. Built and tested on iOS using Xamarin Studio.
 
