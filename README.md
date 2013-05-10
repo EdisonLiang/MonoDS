@@ -83,9 +83,8 @@ using (var docStore = new DocumentStore(libraryPath))
 ```
 Notes
 --
-1. MonoDS is still being tested and is not ready for production use. 
-2. Domain objects must have an Id property and it must be a short, int or long.
-3. Built and tested on iOS using Xamarin Studio.
+1. Domain objects must have an Id property and it must be a short, int or long.
+2. Built and tested on iOS using Xamarin Studio.
 
 Performance
 --
@@ -101,6 +100,10 @@ Roadmap
 Bugs
 --
 For bugs and feature requests please open a [new issue](https://github.com/toneuk/MonoDS/issues).
+
+Applications using MonoDS
+--
+- MonoDS is used in the free weight lifting app [MyStrength](https://itunes.apple.com/us/app/mystrength/id634177889?mt=8).
 
 
 License
